@@ -111,6 +111,27 @@
 			</form><br>
 		</div>
 	</div>
+
+	<div class = 'col-md-3'>
+		<div class = "card text-left mb-3" >
+			<h4 style = "text-align:center">Debt closure</h4><hr>
+
+			<form method = 'POST' action = "debts">
+			{% csrf_token %}
+				<label for = 'date_in'> Date: </label>
+				<input type = 'date' id = 'date_in' name = 'date_in' required><hr>
+
+				<label for = 'amount'> Amount: </label>
+				<input type = 'float' min = '0.000' id = 'amount' name = 'amount' value = 0.00 required><hr>
+				
+				<label for = 'income'> Income Type: </label>
+				<input type = 'text' id = 'income' name = 'income' value = 'me' required><hr>
+				
+				<button class = 'btn btn-sm btn-info' type = 'submit'>Save</button>
+				<!--button class = "btn btn-sm btn-info"> Save</button!-->
+			</form><br>
+		</div>
+	</div>
 </div>
 
 {% endblock %}

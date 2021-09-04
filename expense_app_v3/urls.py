@@ -13,7 +13,7 @@ urlpatterns = [
     path('loginpage', views.loginpage, name = 'loginpage'),
     path('logout/', views.logoutpage, name = 'logout'),
     path('consolidate', views.consolidate, name = 'consolidate'),
-
+    path('debts', views.debt_data_load, name ='debts'),
     #path('delete/<int:pk>', views.editdate, name = 'delete'),
     #path('sub_cat/', views.sub_cat, name = 'sub_cat')
 ]

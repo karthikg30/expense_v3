@@ -106,6 +106,22 @@ def load_data(request):
 
     return render (request, 'expense/dashboard.html', {'cat_form':cat_form,"sub_cat_form":sub_cat_form })
 
+@login_required(login_url='loginpage')
+def debt_data_load(request):
+
+    cat_form = cat_master_v3.objects.all
+    sub_cat_form = sub_cat_v3.objects.all
+
+    if request.method == 'POST':
+        val1 = request.POST['date_in']
+        val2 = request.POST['amount']
+        val3 = request.POST['debt_reason']
+
+        conn = sql.connect(host="localhost",database="postgres",user="postgres", password="CG-vak123")
+        cur = conn.cursor()
+        cur.execute('call dept_insert (%s, %s,%s);',(val1, val2, val3))
+
+    return render (request, 'expense/dashboard.html', {'cat_form':cat_form,"sub_cat_form":sub_cat_form })
 
 @login_required (login_url= 'loginpage')
 def exp_load_data(request):
