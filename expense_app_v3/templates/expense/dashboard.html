@@ -1,0 +1,116 @@
+{%extends 'expense/base.html'%}
+{%load static%}
+{%block content%}
+<hr>
+<div class = 'row'>
+	<div class = 'col-md-4'>
+		<div class="card text-left mb-3">
+			<h4 style = "text-align:center">Income details</h4><hr>			
+			
+			<form method = 'POST' action = "load_data">
+			{% csrf_token %}
+				<label for = 'date_in'> Date: </label>
+				<input type = 'date' id = 'date_in' name = 'date_in' required><hr>
+
+				<label for = 'amount'> Amount: </label>
+				<input type = 'float' min = '0.000' id = 'amount' name = 'amount' value = 0.00 required><hr>
+				
+				<label for = 'income'> Income Type: </label>
+				<input type = 'text' id = 'income' name = 'income' value = 'Salary' required><hr>
+				
+				<button class = 'btn btn-sm btn-info' type = 'submit'>Save</button>
+				<!--button class = "btn btn-sm btn-info"> Save</button!-->
+			</form>
+		
+		</div>
+	</div>
+	<div class = 'col-md-4'>
+		<div class="card text-left mb-3" >
+			<h4 style = "text-align:center">Admin Income details</h4><hr>
+
+			
+			<form method = 'POST' action = "load_data">
+			{% csrf_token %}
+				<label for = 'date_in'> Date: </label>
+				<input type = 'date' id = 'date_in' name = 'date_in' required><hr>
+
+				<label for = 'amount'> Amount: </label>
+				<input type = 'float' min = '0.000' id = 'amount' name = 'amount' value = 0.00 required><hr>
+				
+				<label for = 'income'> Income Type: </label>
+				<input type = 'text' id = 'income' name = 'income' value = 'me' required><hr>
+				
+				<button class = 'btn btn-sm btn-info' type = 'submit'>Save</button>
+				<!--button class = "btn btn-sm btn-info"> Save</button!-->
+			</form>
+
+		</div>
+	</div>
+
+	<div class = 'col-md-4'>
+		<div class="card text-left mb-3" >
+			<h4 style = "text-align:center">Admin Expense Details</h4><hr>
+			
+			<form method = 'POST' action = "exp_load_data">
+			{% csrf_token %}
+				
+				<label for = 'date_in'> Expense Date: </label>
+				<input type = 'date' id = 'date_in' name = 'date_in' required><hr>
+
+				
+				<label for = 'cat_code'> Category: </label>
+				<select type = 'text' id = 'cat_code' name = 'cat_code' >
+					<option > --select-- </option>
+      			
+					{%for result in cat_form %}
+      					<option  value = "{{result.id}}"> {{result.cat_name}} </option>
+      				{% endfor %}
+				
+				</select><br><br>
+
+				<label for = 'sub_cat'> Sub Category: </label>
+				<select type = 'text' id = 'sub_cat' name = 'sub_cat' >
+					<option > --select-- </option>
+
+					{%	for result in sub_cat_form %}
+      					<option  value = "{{result.id}}"> {{result.sub_name}}   </option>
+      				{% endfor %}
+				
+				</select><br><br>
+				
+				
+				<!--label for = 'income'> Sub Category: </label>
+				<input type = 'text' id = 'income' name = 'income'  required><hr!-->				
+
+				<label for = 'amount'> Amount: </label>
+				<input type = 'float' min = '0.000' id = 'amount' name = 'amount' value = 0.00 required><hr>
+				
+				<label for = 'remarks'> Remarks: </label>
+				<input type = 'text' id = 'remarks' name = 'remarks' required><hr>
+				
+				<button class = 'btn btn-sm btn-info' type = 'submit'>Save</button>
+				<!--button class = "btn btn-sm btn-info"> Save</button!-->
+			</form>
+
+		</div>
+	</div>
+</div><hr>
+
+<div class = 'row'>
+	<div class = 'col-md-3'>
+		<div class = "card text-left mb-3" >
+			<h5> Click Here! to consolidate  </h5><hr>
+
+			<form method = 'POST' action = 'consolidate' >
+			{% csrf_token %}
+
+			<label for = 'process_date'>Process Date </label>
+			<input type = 'date' id = 'process_date' name= 'process_date' required></input><br>
+			
+			<button class = 'btn btn-sm btn-success' type = 'submit' >Process</button>
+			</form><br>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

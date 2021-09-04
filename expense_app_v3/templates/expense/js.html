@@ -1,0 +1,343 @@
+{% extends 'expense/base.html'%}
+{% load static %}
+{% block content %}
+
+<!--script> // changing the values in screen using button-- Function 
+function myfunc(){
+    document.getElementById("para").innerHTML = "Paragraph Changed dude!"
+}
+</script>
+
+<p1 id = "para"> This para gonna change! <p>
+
+
+<button type = "button" 
+onclick = "myfunc()"> Click Me!</button>
+
+
+<br>
+
+<p id = "total"></p>
+
+<script>
+var x = 3; var y = 3;
+document.getElementById('total').innerHTML = x + y
+</script>
+
+<script>
+<button type = "button" onclick = 'window.alert(x * y)'> Multiply </button> 
+</script>
+
+<hr>
+
+<p id = "names"> FullName goes here!</p>
+<p id = "n2"> </p>
+
+<script>
+
+var person = {
+    firstname: "Karthik",
+    lastname: "Ganesan",
+    dob: "1994-06-30",
+    location: "Chennai"
+};
+
+function printfunc(a){
+
+    return document.getElementById("names").innerHTML = a.firstname + " " + a.lastname;
+
+};
+</script>
+
+<button type = "button" onclick = "printfunc(person)" > Full Name ? </button>
+
+<!--p id="demo"></p>
+<script>
+// Create an object:
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     :  5566
+};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = person.firstName + " " + person.lastName;
+
+</script-->
+
+<!--p id = 'test4'> here goes list </p>
+<p id="demo3"></p>
+
+
+<script>
+
+var fruits, text, fLen, i;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+fLen = fruits.length;
+
+text = "<ul>";
+
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+
+text += "</ul>";
+
+document.getElementById("demo3").innerHTML = text;
+
+</script-->
+
+<!--script> // changing the values in screen using button Function 
+function myfunc(){
+    document.getElementById("para").innerHTML = "Paragraph Changed dude!" 
+}
+</script>
+
+<p1 id = "para"> This para gonna change! <p>
+
+<button type = "button" 
+onclick = "myfunc()"> Click Me!</button-->
+
+<noscript>
+  <h1 style = "color:red">('Please enable javascript for better performance')</h1>
+</noscript>
+
+<script type = "text/javascript">
+ // alert('Testing');
+  //console.log('FYI Testing');
+/* 
+  var age = 27;
+  var name = 'Karthik Ganesan';
+  var flag = true;
+  var novalue = null;
+  var undef;
+
+  console.log(age);
+  console.log(name);
+  console.log(flag);
+  console.log(novalue);
+  console.log(undef);
+
+  console.log(typeof age);
+  console.log(typeof name);
+  console.log(typeof flag);
+  console.log(typeof novalue);
+  console.log(typeof undef);
+  */
+ /* if else class
+  var age = 62;
+  var permission = false;
+
+  if ((age >= 18 || permission )&& age < 60 ){
+    console.log('You can go to ride')
+  } else {
+    console.log('Get out for here!')
+  } */
+
+  //alert('This is just an alter message!')
+/*
+  var name = prompt('What is your name ?', 'Allien');
+  alert ('Your Name is '+ name + '!');*/
+
+//var name = confirm('Will to continue to the site?');
+//alert(response);
+
+/* alert, prompt and confirm in javascript
+var age = prompt('Enter Your age', 18);
+var permission = confirm('Do you have your parents permission? ');
+
+if ((age >= 18 || permission )&& age < 60 ){
+    console.log('You can go to ride')
+  } else {
+    console.log('Get out for here!')
+  }
+*/
+
+/*
+do {
+  var boole = confirm ('Do you want to continue?')
+} while (boole)
+
+*/
+
+/*
+var i = 1
+
+while(i <= 10) {
+  console.log(i);
+  i++ ;
+} */
+
+/*
+var i = 0
+for (i = 1; i < 8; i++){
+  console.log(i);
+}
+*/
+
+/*
+function myfunc(message, name){
+  return ('Hello '+ name + ', ' + message);
+}
+
+console.log(myfunc('Good morning', 'Karthik'));
+*/
+
+/*
+var person = new Object();
+person.name = 'Karthik';
+person.email = 'g.karthikkbe@gmail.com';
+
+console.log('Hi '+ person.name + ', Your mail id - ' + person.email);
+
+person.func = function merge(a,b){
+  console.log('Hi ' + a + ' ,' + b);
+}
+
+console.log(person.func(person.name,person.email));
+
+*/
+
+/*
+var user = {};
+var user1 = {
+  'name': 'Kaviya',
+  'ph': '9629564321',
+  'func': function suma (){
+    console.log('this is function ' + this.name + ' ' + this.ph);
+  }
+};
+
+
+user.name = 'Karthik';
+user.ph = '99442965321';
+
+for (i in user1){
+  console.log (user1[i]);
+}
+
+console.log(user1.func())
+*/
+
+/* Data properties in dict 
+ var users = {};
+ users = {
+   'name' : 'Karthik Ganesan',
+   'phone' : '9597483225',
+   'salary' : 90000,
+   'Designation' : 'Developer', 
+   _bonus : 0
+   };
+
+Object.defineProperty(users, 'salary', {
+  configurable: true,
+  enumerable: false, 
+  writable: false
+});
+
+Object.defineProperty(users, 'bonus', {
+  get: function (){
+    return this._bonus;
+  },
+  set: function (b_rate){
+    if (b_rate <= 15 && this.salary < 100000){
+      this._bonus = b_rate;
+    };
+  }
+});
+
+users.bonus = 11;
+
+users.total_pay = users.salary + (users.salary * (users.bonus /100));
+
+Object.defineProperty(users, 'total_pay', {
+  configurable: true,
+  enumerable: true, 
+  writable: false, 
+});
+
+for ( i in users){
+console.log(i + ' - ' + users[i]);
+};
+
+employee1 = {};
+
+Object.defineProperties(employee1, {
+  name: { value: 'Kaviya',
+          writable: false
+  },
+  
+  doj: {
+    value: '21-03-2013',
+    writable: true
+    //enumerable: true
+  },
+
+  salary: {
+    value: 60000,
+    writable: false
+    //enumerable: false
+  },
+
+  _bonus: {
+    value: 0,
+    writable : true
+  },
+
+  bonus: {
+    get: function () {
+      return this._bonus;
+    },
+    set: function(newbonus){
+      this._bonus = newbonus;
+    }
+  }
+}
+);
+
+employee1.bonus = 10;
+console.log(employee1);
+
+function Employee (name, doj, salary, city){
+  this.name = name,
+  this.doj = doj, 
+  this.salary = salary, 
+  this.city = city
+  this.sayhi = function hi(){
+      console.log ('Hi '+ this.name + ' Your Salary is ' + this.salary);
+  }
+};
+
+employee1 = new Employee('Karthik Ganesan', '30-06-2001', 90000, 'Madurai');
+employee2 = new Employee('Kaviya Ganesan', '5-06-1996', 200000, 'Chennai');
+
+console.log(employee1, employee2);
+console.log(employee1.sayhi(), employee2.sayhi());
+
+var newarr =  new Array;
+newarr[0] = 'test';
+newarr[1] = 'Passed';
+
+var ele_1 = newarr.unshift();
+console.log(ele_1);
+
+
+var newar = new Array;
+newar = [34,67,89,32,10,100];
+
+function ascSort(value1, value2){
+  return value1 - value2;
+};
+
+
+function DesSort(value1, value2){
+  return value2 - value1;
+};
+
+newar.sort(DesSort);
+console.log(newar);
+*/
+
+</script>
+
+{% endblock %}

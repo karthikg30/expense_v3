@@ -1,0 +1,107 @@
+{% extends 'expense/base.html' %}
+{%block content%}
+
+<br>
+<div class = "row">
+    <div class = "col-md-4">
+        <div class = "card card-body">
+            <h5> Create Category</h5><hr>
+            <form action = "" method = "POST" >
+                {% csrf_token %}
+                <div class="fieldWrapper">
+                    {{ form.cat_name.errors }}
+                    <label for="{{ form.cat_name.id_for_label }}">Category Name:</label>
+                    {{ form.cat_name }}
+                </div><br>
+
+                <div class="fieldWrapper">
+                    {{ form.date_created.errors }}
+                    <label for="{{ form.date_created.id_for_label }}">Date Created:</label>
+                    <input type = "date" name = "date_created" required id ="{{form.date_created.id_for_label}}" >
+                </div><hr>
+
+                <button class="btn btn-info" type="submit">Submit</button>
+                <!--input calss = "btn btn-sm btn-info" type = "submit" name = "submit"></input-->
+            </form>
+        </div>
+    </div>
+
+    <div class = "col-md-4">
+        <div class = "card card-body">
+            <h5> Sub - Category </h5><hr>
+            <form action = "" method = "POST">
+            {% csrf_token %}
+
+            <div class="fieldWrapper">
+                    {{ form2.cat_code.errors }}
+                    <label for="{{ form2.cat_code.id_for_label}}">Category Name:</label>
+                    {{ form2.cat_code }}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form2.sub_name.errors }}
+                    <label for="{{ form2.sub_name.id_for_label}}">Sub - Cat Name:</label>
+                    {{ form2.sub_name }}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form2.date_created.errors }}
+                    <label for="{{ form2.date_created.id_for_label}}">Created Date:</label>
+                    <input type = "date" name = "date_created" required id ="{{form2.date_created.id_for_label}}" >
+            </div><br>
+
+            
+            <button class = "btn btn-info" type = "submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class = "col-md-3">
+        <div class = "card card-body">
+        <h5> Expense Details </h5><hr>
+            <form action = "" method = "POST">
+                {%csrf_token%}
+
+            <div class="fieldWrapper">
+                    {{ form3.date_created.errors }}
+                    <label for="{{ form3.date_created.id_for_label}}">Expense Date:</label>
+                    <input type = "date" name = "date_created" required id ="{{form3.date_created.id_for_label}}" >
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form3.cat_code.errors }}
+                    <label for="{{ form3.cat_code.id_for_label}}">Category: </label>
+                    {{ form3.cat_code }}
+            </div><br>
+            
+            <div class="fieldWrapper">
+                    {{ form3.sub_code.errors }}
+                    <label for="{{ form3.sub_code.id_for_label}}">Sub-Category:</label>
+                    {{ form3.sub_code}}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form3.amount.errors }}
+                    <label for="{{ form3.amount.id_for_label}}">Amount:</label>
+                    {{ form3.amount}}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form3.remarks.errors }}
+                    <label for="{{ form3.remarks.id_for_label}}">Remarks:</label>
+                    {{ form3.remarks}}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form3.expense_by.errors }}
+                    <label for="{{ form3.expense_by.id_for_label}}">Expense By:</label>
+                    {{ form3.expense_by}}
+            </div><br>
+    
+                <button class = "btn btn-info" type = "submit"> Submit </button>            
+            </form><hr>
+        </div>
+    </div>
+
+</div><hr>
+{% endblock %}

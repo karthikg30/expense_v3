@@ -1,0 +1,37 @@
+{% extends 'expense/base.html' %}
+{% block content%}
+
+<br>
+<div class = "row">
+    <div class = "col-md-4">
+        <div class = "card card-body">
+            <h5> Sub - Category </h5><hr>
+            <form action = "" method = "POST">
+                {%csrf_token%}             
+
+            <div class="fieldWrapper">
+                    {{ form.cat_code.errors }}
+                    <label for="{{ form.cat_code.id_for_label}}">Category Name:</label>
+                    {{ form.cat_code }}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form.sub_name.errors }}
+                    <label for="{{ form.sub_name.id_for_label}}">Sub-Cat Name:</label>
+                    {{ form.sub_name }}
+            </div><br>
+
+            <div class="fieldWrapper">
+                    {{ form.date_created.errors }}
+                    <label for="{{ form.date_created.id_for_label}}">Created Date:</label>
+                    <input type = "date" name = "date_created" required id ="{{form.date_created.id_for_label}}" >
+            </div><br>
+            
+            <button class = "btn btn-info" type = "submit">Submit</button>
+            
+            </form>
+       </div>
+    </div>    
+</div>
+
+{% endblock%} 

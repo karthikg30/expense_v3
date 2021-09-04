@@ -1,0 +1,55 @@
+body {
+    font-family: verdana;
+    background: #f7f7f7;
+    font-size: 80% ;
+  }
+  
+h1{
+    text-align:center;
+} 
+
+.table-box {
+    width: 1000px;
+    height: 600px;
+    overflow-y: scroll;
+    background: #fff;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+table {
+    width : 200%;
+}
+
+
+table, th, td {
+    border: 1px solid #005277;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th{
+    position: sticky;
+    top:0;
+    background: #00bcd4;
+    color : #fff;
+}
+
+tr th:nth-child(1){
+    width: 60px;
+    background: red;
+    color : #f7f7f7;
+
+}
+
+tr td:nth-child(1){
+    width: 60px;
+    text-align: center;
+}
+
+#orders-pending{
+	background-color: #15d646; color: white
+	}
+
+#orders-delivered {
+    background-color: #009900; color: white
+    }

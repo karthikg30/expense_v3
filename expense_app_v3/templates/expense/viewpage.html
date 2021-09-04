@@ -1,0 +1,52 @@
+{% extends 'expense/base.html'%}
+{% block content %}
+<br>
+<button class = "btn btn-info"> Filter </button><hr>
+<div class = "row" >
+
+    <div class = "col-md-3">
+        <div class = "card card-body">
+        <h4>Categories: </h4>
+            <table class = "table table-sm">
+            <tr>
+                <th>Code </th>
+                <th>Name </th>
+                <th>*</th>
+            </tr>
+            {% for i in cat%}
+            <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.cat_name}} </td>
+                <td> <a href = ""> Edit </a> </td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class = "col-md-3">
+        <div class = "card card-body scrolldown">
+        <h3>Sub categories: </h3>
+            <table class = "table table-sm">
+            <tr>
+                <th>Code </th>
+                <th>Category </th>
+                <th>Sub Category </th>
+                <th>*</th>
+            </tr>
+            {% for i in sub%}
+            <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.cat_code.cat_name}} </td>
+                <td> {{i.sub_name}} </td>
+                <td> <a href = ""> Edit </a> </td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+        
+    </div>    
+</div>
+
+{% endblock %}
