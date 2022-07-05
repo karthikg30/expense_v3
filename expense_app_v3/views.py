@@ -116,14 +116,18 @@ def debt_data_load(request):
         val1 = request.POST['date_in']
         val2 = request.POST['amount']
         val3 = request.POST['income']
+        #val4 = request.POST['Status']
+
 
         conn = sql.connect(host="localhost",database="postgres",user="postgres", password="CG-vak123")
         cur = conn.cursor()
         cur.execute('call dept_insert (%s, %s,%s);',(val1, val2, val3))
         
+        
         cur.close()
         conn.commit()
         conn.close()
+
 
     return render (request, 'expense/dashboard.html', {'cat_form':cat_form,"sub_cat_form":sub_cat_form })
 

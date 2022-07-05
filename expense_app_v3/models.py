@@ -29,6 +29,8 @@ class expense_details_v3(models.Model):
         ('3', 'Karthik'),
         ('4', 'Kaviya'),
         ('5','General'),
+        ('6','Unknown'),
+        ('7','JD'),
     )
 
     cat_code = models.ForeignKey(cat_master_v3, null = True, on_delete = models.DO_NOTHING)
